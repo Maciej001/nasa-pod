@@ -1,25 +1,46 @@
 import React, { Component } from "react";
 import "./App.css";
-
-import { data } from './data'
-
-const API_KEY = "LbFYO3SNWbNiztw71oMQpzChpytNi5uFxhKe7ZR0";
-const API = "https://api.nasa.gov/planetary/apod/";
-
+import Button from './Button'
+import Picture from './Picture'
 
 class App extends Component {
+  state = {
+    date: new Date(),
+  }
+
+  onDateIncrease = () => {
+    const date = this.state.date;
+    const newDate = date.setDate(date.getDate() + 1)
+    if (newDate <= new Date()) {
+      this.setState({ date: new Date(newDate) });
+    }
+  }
+
+  onDateDecrease = () => {
+    const date = this.state.date;
+    const newDate = date.setDate(date.getDate() - 1)
+    this.setState({ date: new Date(newDate) });
+  }
+
+  dateToText = () => {
+    const date = this.state.date;
+    const year = date.getFullYear();
+    const month = date.getMonth() < 9 ? `0${date.getMonth()+1}` : date.getMonth()+1;
+    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    return `${year}-${month}-${day}`;
+  }
+
   render() {
-    const { date, explanation, title, url } = data;
     return (
       <div className="app">
         <h1>NASA Picture of the Day</h1>
-
-        <div className='picture-day'>
-          <span>{date}</span>
-          <h2>{title}</h2>
-          <img src={url} alt={title}/>
-          <p>{explanation}</p>
+        <div className='navigation'>
+          <Button onClick={this.onDateDecrease}>{`<`}</Button>
+          <span>{this.dateToText(this.state.date)}</span>
+          <Button onClick={this.onDateIncrease}>{`>`}</Button>
         </div>
+
+        <Picture date={this.dateToText(this.state.date)} />
 
       </div>
     );

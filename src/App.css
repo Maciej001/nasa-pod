@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
 }
 
@@ -28,8 +28,9 @@ body {
 }
 
 .app span {
-  font-size: 12px;
+  font-size: 16px;
   color: #999;
+  padding: 0 20px;
 }
 
 .picture-day {
@@ -37,6 +38,31 @@ body {
   margin: 0 auto;
 }
 
+
 img {
   width: 100%;
+}
+
+button {
+  font-size: 24px;
+  padding: 3px 10px;
+  color: #555;
+  border-radius: 3px;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ccc;
+  border: 1px solid #aaa;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.loading {
+  font-size: 18px;
+  color: #999;
 }
