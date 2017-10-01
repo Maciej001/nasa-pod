@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  padding-bottom: 100px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.app h1 {
+  align-self: center;
+  color: #555;
+}
+
+.app h2 {
+  color: #555;
+}
+
+.app p {
+  color: #999;
+  line-height: 1.5;
+}
+
+.app span {
+  font-size: 12px;
+  color: #999;
+}
+
+.picture-day {
+  width: 100%;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+}
