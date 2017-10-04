@@ -3,23 +3,29 @@ import "./App.css";
 import Button from './Button'
 import Picture from './Picture'
 
+const dateChangeDirection = {
+  increase: 1,
+  decrease: -1
+}
+
 class App extends Component {
   state = {
     date: new Date(),
   }
 
   onDateIncrease = () => {
-    const date = this.state.date;
-    const newDate = date.setDate(date.getDate() + 1)
-    if (newDate <= new Date()) {
-      this.setState({ date: new Date(newDate) });
-    }
+    this.onDateChange(dateChangeDirection.increase, this.state.date)
   }
 
   onDateDecrease = () => {
-    const date = this.state.date;
-    const newDate = date.setDate(date.getDate() - 1)
-    this.setState({ date: new Date(newDate) });
+    this.onDateChange(dateChangeDirection.decrease, this.state.date)
+  }
+
+  onDateChange = (direction, date) => {
+    const newDate = new Date(date).setDate(date.getDate() + direction)
+    if (newDate <= new Date()) {
+      this.setState({ date: new Date(newDate) });
+    }
   }
 
   dateToText = () => {
