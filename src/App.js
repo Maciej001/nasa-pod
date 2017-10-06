@@ -28,8 +28,7 @@ class App extends Component {
     }
   }
 
-  dateToText = () => {
-    const date = this.state.date;
+  dateToText = ( date ) => {
     const year = date.getFullYear();
     const month = date.getMonth() < 9 ? `0${date.getMonth()+1}` : date.getMonth()+1;
     const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
@@ -40,10 +39,10 @@ class App extends Component {
     return (
       <div className="app">
         <h1>NASA Picture of the Day</h1>
-        <div className='navigation'>
-          <Button onClick={this.onDateDecrease}>{`<`}</Button>
+        <div>
+          <Button onClick={this.onDateDecrease}>&lt;</Button>
           <span>{this.dateToText(this.state.date)}</span>
-          <Button onClick={this.onDateIncrease}>{`>`}</Button>
+          <Button onClick={this.onDateIncrease}>&gt;</Button>
         </div>
 
         <Picture date={this.dateToText(this.state.date)} />

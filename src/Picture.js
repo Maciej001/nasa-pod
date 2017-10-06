@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
 const API_KEY = "LbFYO3SNWbNiztw71oMQpzChpytNi5uFxhKe7ZR0";
 const API = "https://api.nasa.gov/planetary/apod?";
@@ -8,7 +8,7 @@ class Picture extends Component {
     title: "",
     explanation: "",
     url: ""
-  }
+  };
 
   componentDidMount() {
     this.fetchData(this.props.date);
@@ -18,26 +18,26 @@ class Picture extends Component {
     this.fetchData(nextProps.date);
   }
 
-  fetchData = (date) => {
-    const query = API + `date=${date}&api_key=${API_KEY}`
-    fetch( query )
+  fetchData = date => {
+    const query = API + `date=${date}&api_key=${API_KEY}`;
+    fetch(query)
       .then(response => response.json())
-      .then( data => {
+      .then(data => {
         this.setState({
           title: data.title,
           explanation: data.explanation,
           url: data.url
-        })
-      })
-  }
+        });
+      });
+  };
 
   render() {
-    const {title, explanation, url } = this.state;
-    
+    const { title, explanation, url } = this.state;
+
     return (
-      <div className='picture-day'>
+      <div>
         <h2>{title}</h2>
-        <img src={url} alt={title}/>
+        <img src={url} alt={title} />
         <p>{explanation}</p>
       </div>
     );

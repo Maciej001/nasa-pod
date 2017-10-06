@@ -15,7 +15,7 @@ body {
 
 .app h1 {
   align-self: center;
-  color: #555;
+  color: #333;
 }
 
 .app h2 {
@@ -32,12 +32,6 @@ body {
   color: #999;
   padding: 0 20px;
 }
-
-.picture-day {
-  width: 100%;
-  margin: 0 auto;
-}
-
 
 img {
   width: 100%;
